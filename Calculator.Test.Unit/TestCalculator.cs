@@ -88,6 +88,7 @@ namespace Calculator.Test.Unit
         // ... when same method is tried with different values!
         [TestCase(2,3,6)]
         [TestCase(-2, 3.5, -7)]
+        [TestCase(2, 2, 4)]
 
         public void Multiply_MultiplyWithTestCase(double aNy, double bNy, double expectedResult)
         {
