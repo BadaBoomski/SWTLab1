@@ -59,6 +59,14 @@ namespace Calculator.Test.Unit
         }
 
         [Test]
+        public void Substract_SubstractNegative5and7_ReturnsNegative12() //Thomas's test
+        {
+            // var _uut = new Calculator();
+
+            Assert.That(_uut.Subtract(-5, 7), Is.EqualTo(-12));
+        }
+
+        [Test]
         public void Mulitply_Multiply3and4_Returns12()
         {
             // var _uut = new Calculator();
