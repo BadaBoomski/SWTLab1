@@ -82,12 +82,17 @@ namespace Calculator.Test.Unit
 
             Assert.That(_uut.Power(2, 3), Is.EqualTo(8));
         }
-        
+
         // We've now tried [Test] and for the above, why can conclude, that it is a very slow method.. 
         // Here we try  the [TestCase] showing that it is by far much faster/easier
         // ... when same method is tried with different values!
+
         [TestCase(2,3,6)]
         [TestCase(-2, 3.5, -7)]
+        [TestCase(2, 0, 0)]
+        [TestCase(0, 0, 0)]
+        [TestCase(0, 1, 0)]
+
 
         public void Multiply_MultiplyWithTestCase(double aNy, double bNy, double expectedResult)
         {
