@@ -14,129 +14,89 @@ using NUnit.Framework.Internal;
 
 namespace Calculator.Test.Unit
 {
-    [TestFixture] // tells NUnit that this is a test and !Class
+    [TestFixture] // Tag to tell NUnit that this is a test and not a class.
     [Author("Ramtin Asef, au442965")]
     public class TestCalculator
     {
         private Calculator _uut;
 
         [SetUp]
-        public void Setup()
-        {
+        public void Setup() {
             // Arrange
-           _uut = new Calculator(); // This way, we don't have to init _uut each time => saves codelines => saves time!
+           _uut = new Calculator(); // This way, we don't have to initiate a new instance each time => saves codelines => saves time!
         }
 
         [Test] // tells NUnit that this is !Function/method
-        public void Add_Add2and4_Returns6()
-        {
-            //Arrange - next line commented out, bc of [SetUP]
-            // var _uut = new Calculator(); // Unit Under Test - det objekt jeg gerne vil test på
 
-            //Act + Assert
+        //Test af addition
+        public void Add_Add2and4_Returns6() {
             Assert.That(_uut.Add(2,4), Is.EqualTo(6));
         }
 
         [Test]
-        public void Add_AddMinus2Plus4_Returns2()
-        {
-            // var _uut = new Calculator();
-
+        public void Add_AddMinus2Plus4_Returns2() {
             Assert.That(_uut.Add(-2, 4), Is.EqualTo(2));
         }
 
         [Test]
-        public void Substract_Substract5and5_Returns0()
-        {
-            // var _uut = new Calculator();
-
+        public void Substract_Substract5and5_Returns0() {
             Assert.That(_uut.Subtract(5, 5), Is.EqualTo(0));
         }
 
         [Test]
-        public void Substract_Substract5and7_ReturnsMinus2()
-        {
-            // var _uut = new Calculator();
-
+        public void Substract_Substract5and7_ReturnsMinus2() {
             Assert.That(_uut.Subtract(5, 7), Is.EqualTo(-2));
         }
 
         [Test]
-        public void Substract_SubstractNegative5and7_ReturnsNegative12() //Thomas's test
-        {
-            // var _uut = new Calculator();
-
+        public void Substract_SubstractNegative5and7_ReturnsNegative12() {
             Assert.That(_uut.Subtract(-5, 7), Is.EqualTo(-12));
         }
 
         [Test]
-        public void Mulitply_Multiply3and4_Returns12()
-        {
-            // var _uut = new Calculator();
-
+        public void Mulitply_Multiply3and4_Returns12() {
             Assert.That(_uut.Multiply(3, 4), Is.EqualTo(12));
         }
 
         [Test]
-        public void Multiply_Multiply0and2_Returns0()
-        {
-            // var _uut = new Calculator();
-
+        public void Multiply_Multiply0and2_Returns0() {
             Assert.That(_uut.Multiply(0, 2), Is.EqualTo(0));
         }
 
         /*Test af Eksponentiel Funktion*/
 
         [Test]
-        public void Power_Power2and3_Returns8()
-        {
-            //Power is in this example 2*2*2=8
-            // var _uut = new Calculator();
-
+        public void Power_Power2and3_Returns8() {
             Assert.That(_uut.Power(2, 3), Is.EqualTo(8));
         }
 
         [Test]
-        public void Power_PowerNegative2and3_Returns8()
-        {
-            //Power is in this example 2*2*2=8
-            // var _uut = new Calculator();
-
+        public void Power_PowerNegative2and3_Returns8() {
             Assert.That(_uut.Power(-2, 3), Is.EqualTo(-8));
         }
 
         [Test]
-        public void Power_Power2dot13and3_Returns9dot66()
-        {
-            //Power is in this example 2*2*2=8
-            // var _uut = new Calculator();
-
-            Assert.That(_uut.Power(2.13, 3), Is.EqualTo(9.66));
+        public void Power_Power2dot13and3_Returns9dot66() {
+          Assert.That(_uut.Power(2.13, 3), Is.EqualTo(9.66));
         }
 
         [Test]
-        public void Power_PowerNegative2dot13And3_ReturnsNegative9dot66()
-        {
-            //Power is in this example 2*2*2=8
-            // var _uut = new Calculator();
-
+        public void Power_PowerNegative2dot13And3_ReturnsNegative9dot66() {
             Assert.That(_uut.Power(-2.13, 3), Is.EqualTo(-9.66));
         }
 
         [Test]
-        public void Divide_Divide10and5Return2()
-        {
+        public void Divide_Divide10and5Return2() {
             Assert.That(_uut.Divide(10,5),Is.EqualTo(2));
         }
 
         [Test]
-        public void Divide_Dividenegative10and5Return2()
-        {
+        public void Divide_Dividenegative10and5Return2() {
             Assert.That(_uut.Divide(-10, 5), Is.EqualTo(-2));
         }
+
         [Test]
-        public void Divide_Divide0and5Return2()
-        {
+        public void Divide_Divide0and5Return2() {
             Assert.That(_uut.Divide(0, 5), Is.EqualTo(0));
         }
 
@@ -148,15 +108,13 @@ namespace Calculator.Test.Unit
         [TestCase(-2, 3.5, -7)]
         [TestCase(2, 2, 4)]
         [TestCase(2, 0, 0)]
-        public void Multiply_MultiplyWithTestCase(double aNy, double bNy, double expectedResult)
-        {
+        public void Multiply_MultiplyWithTestCase(double aNy, double bNy, double expectedResult) {
            var total = _uut.Multiply(aNy, bNy);
             Assert.AreEqual(total, expectedResult);
         }
 
         [Test]
-        public void Accumulator_ReturnMultiply()
-        {
+        public void Accumulator_ReturnMultiply() {
             _uut.Multiply(2, 2); //Accumulator = 4
             _uut.Add(_uut.Accumulator, 2); // Accumulator = 6
             //gentag test for alle funktioner
@@ -166,8 +124,7 @@ namespace Calculator.Test.Unit
         }
 
         [Test]
-        public void Accumulator_ReturnResultFromAdd()
-        {
+        public void Accumulator_ReturnResultFromAdd() {
             _uut.Multiply(2, 2);    //Accumulator = 4
             _uut.Divide(10, 2);     //Accumulator = 5
             _uut.Divide(8,2);       // Accumulator = 4
@@ -177,8 +134,7 @@ namespace Calculator.Test.Unit
         }
 
         [Test]
-        public void Accumulator_ReturnResultFromDivide()
-        {
+        public void Accumulator_ReturnResultFromDivide() {
             _uut.Multiply(2, 2);    //Accumulator = 4
             _uut.Divide(10, 2);     //Accumulator = 5
             _uut.Add(8, 8);         // Accumulator = 16
@@ -192,8 +148,7 @@ namespace Calculator.Test.Unit
         }
 
         [Test]
-        public void Accumulator_ReturnResultFromMultiply()
-        {
+        public void Accumulator_ReturnResultFromMultiply() {
             _uut.Multiply(2, 2);    //Accumulator = 4
             _uut.Divide(10, 2);     //Accumulator = 5
             _uut.Add(8, 8);         // Accumulator = 16
@@ -206,6 +161,45 @@ namespace Calculator.Test.Unit
             Assert.AreEqual(testAccul, 20);
         }
 
+        //A simple Test that will attempt to do different arithmetic calculations with the use of overloads.
+        [Test]
+        public void AccumlatorOverloadTesting() {
+            //addition
+            _uut.Add(2, 2); //accumalator = 4
+            Assert.AreEqual(_uut.Accumulator, 4);
+            _uut.Add(2); // accumulator = 6 -> Overload part
+            Assert.AreEqual(_uut.Accumulator, 6);
+            _uut.Add(1); //Adding multiple 1's to see if the accumulator is actually being updated when used through overload multiple times in a row.
+            _uut.Add(1);
+            _uut.Add(1);
+            _uut.Add(1);
+            _uut.Add(1);
+            Assert.AreEqual(_uut.Accumulator, 11);
+
+            //division
+            _uut.Divide(10, 2);
+            Assert.AreEqual(_uut.Accumulator, 5);
+            _uut.Divide(0.5);
+            Assert.AreEqual(_uut.Accumulator, 2.5);
+
+            //subtraction
+            _uut.Subtract(10, 5);
+            Assert.AreEqual(_uut.Accumulator, 5);
+            _uut.Subtract(4, 5);
+            Assert.AreEqual(_uut.Accumulator, 0.5);
+
+            //multiplication
+            _uut.Multiply(0.5, 7);
+            Assert.AreEqual(_uut.Accumulator, 3.5);
+            _uut.Multiply(3);
+            Assert.AreEqual(_uut.Accumulator, 10.5);
+
+            //Power
+            _uut.Power(10, 2); // 100
+            Assert.AreEqual(_uut.Accumulator, 100);
+            _uut.Power(2);
+            Assert.AreEqual(_uut.Accumulator, 10000);
+        }
         [Test]
         public void Clear_ClearAccessorAfterItHoldsAnInteger()
         {
