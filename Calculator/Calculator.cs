@@ -44,15 +44,43 @@ namespace Calculator
             return Accumulator = Math.Pow(Accumulator, exp);
         }
 
-        public double Divide(double dividend, double divisor) {
-            return Accumulator = dividend / divisor;
+        public double Divide(double dividend, double divisor)
+        {
+            if (divisor == 0)
+            {
+                throw new System.DivideByZeroException();
+            }
+            try
+            {
+                return Accumulator = dividend / divisor;
+            }
+            catch (DivideByZeroException)
+            {
+                Console.WriteLine("Attempted divide by zero.");
+                return -1;
+            }
         }
 
-        public double Divide(double divisor) {
-            return Accumulator = Accumulator / divisor;
+        public double Divide(double divisor)
+        {
+            if (divisor == 0)
+            {
+                throw new System.DivideByZeroException();
+            }
+            try
+            {
+                return Accumulator = Accumulator / divisor;
+            }
+
+            catch
+                (DivideByZeroException)
+            {
+                Console.WriteLine("Attempted divide by zero.");
+                return -1;
+            }
         }
 
-        public void Clear()
+public void Clear()
         {
             Accumulator = 0;
         }
