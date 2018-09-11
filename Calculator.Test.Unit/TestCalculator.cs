@@ -104,6 +104,8 @@ namespace Calculator.Test.Unit
 
             Assert.That(_uut.Power(-2, 3), Is.EqualTo(-8));
         }
+
+        [Test]
         public void Power_Power2dot13and3_Returns9dot66()
         {
             //Power is in this example 2*2*2=8
@@ -112,6 +114,7 @@ namespace Calculator.Test.Unit
             Assert.That(_uut.Power(2.13, 3), Is.EqualTo(9.66));
         }
 
+        [Test]
         public void Power_PowerNegative2dot13And3_ReturnsNegative9dot66()
         {
             //Power is in this example 2*2*2=8
@@ -137,9 +140,9 @@ namespace Calculator.Test.Unit
             Assert.That(_uut.Divide(0, 5), Is.EqualTo(0));
         }
 
-        // We've now tried [Test] and for the above, why can conclude, that it is a very slow method.. 
-        // Here we try  the [TestCase] showing that it is by far much faster/easier
-        // ... when same method is tried with different values!
+        /* Above we've tried using the tag [Test]. We can conclude that the method of using [Test] is rather slow and inefficient to write out. 
+           Therefore we continue with the tag [TestCase]. This tag is a lot faster to work with, if you're working with the same method a few times and only need to change the values.
+        */
 
         [TestCase(2,3,6)]
         [TestCase(-2, 3.5, -7)]
@@ -147,15 +150,14 @@ namespace Calculator.Test.Unit
         [TestCase(2, 0, 0)]
         public void Multiply_MultiplyWithTestCase(double aNy, double bNy, double expectedResult)
         {
-           // var _uut = new Calculator();
-            var total = _uut.Multiply(aNy, bNy);
+           var total = _uut.Multiply(aNy, bNy);
             Assert.AreEqual(total, expectedResult);
         }
     
     public void Accumulator_ReturnMultiply()
-        {
-           var testResult = _uut.Multiply()
-        }
+    {
+        var testResult = _uut.Multiply();
+    }
 
         /*
          * [SetUP] and [TearDown] - useful in e.g. inheritance.
