@@ -145,9 +145,6 @@ namespace Calculator.Test.Unit
         [TestCase(-2, 3.5, -7)]
         [TestCase(2, 2, 4)]
         [TestCase(2, 0, 0)]
-        
-
-
         public void Multiply_MultiplyWithTestCase(double aNy, double bNy, double expectedResult)
         {
            // var _uut = new Calculator();
@@ -155,15 +152,9 @@ namespace Calculator.Test.Unit
             Assert.AreEqual(total, expectedResult);
         }
     
-        [Test]
     public void Accumulator_ReturnMultiply()
         {
-            _uut.Multiply(2,2); //Accumulator = 4
-            _uut.Add(_uut.Accumulator,2); // Accumulator = 6
-            //gentag test for alle funktioner
-
-            double testAccul = _uut.Accumulator;
-            Assert.AreEqual(testAccul, 6);
+           var testResult = _uut.Multiply()
         }
 
         /*
