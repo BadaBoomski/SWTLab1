@@ -15,7 +15,7 @@ using NUnit.Framework.Internal;
 namespace Calculator.Test.Unit
 {
     [TestFixture] // Tag to tell NUnit that this is a test and not a class.
-    [Author("Ramtin Asef, au442965")]
+    [Author("STWgruppe20")]
     public class TestCalculator
     {
         private Calculator _uut;
@@ -76,13 +76,13 @@ namespace Calculator.Test.Unit
         }
 
         [Test]
-        public void Power_Power2dot13and3_Returns9dot66() {
-          Assert.That(_uut.Power(2.13, 3), Is.EqualTo(9.66));
+        public void Power_Power2dot13and3_Returns9dot52818() {
+          Assert.That(_uut.Power(2.5, 3), Is.EqualTo(15.625));
         }
 
         [Test]
-        public void Power_PowerNegative2dot13And3_ReturnsNegative9dot66() {
-            Assert.That(_uut.Power(-2.13, 3), Is.EqualTo(-9.66));
+        public void Power_PowerNegative2dot13And3_ReturnsNegative15dot625() {
+            Assert.That(_uut.Power(-2.5, 3), Is.EqualTo(-15.625));
         }
 
         [Test]
@@ -180,13 +180,13 @@ namespace Calculator.Test.Unit
             _uut.Divide(10, 2);
             Assert.AreEqual(_uut.Accumulator, 5);
             _uut.Divide(0.5);
-            Assert.AreEqual(_uut.Accumulator, 2.5);
+            Assert.AreEqual(_uut.Accumulator, 10);
 
             //subtraction
             _uut.Subtract(10, 5);
             Assert.AreEqual(_uut.Accumulator, 5);
             _uut.Subtract(4, 5);
-            Assert.AreEqual(_uut.Accumulator, 0.5);
+            Assert.AreEqual(_uut.Accumulator, -1);
 
             //multiplication
             _uut.Multiply(0.5, 7);
@@ -200,9 +200,9 @@ namespace Calculator.Test.Unit
             _uut.Power(2);
             Assert.AreEqual(_uut.Accumulator, 10000);
         }
+
         [Test]
-        public void Clear_ClearAccessorAfterItHoldsAnInteger()
-        {
+        public void Clear_ClearAccessorAfterItHoldsAnInteger(){
             _uut.Add(8, 8);         // Accumulator = 16
             _uut.Multiply(10, 2);     //Accumulator = 20
             _uut.Clear();
@@ -212,8 +212,7 @@ namespace Calculator.Test.Unit
         }
 
         [Test]
-        public void Clear_ClearAccessorAfterItWasClearedAndGivenAValueAgain()
-        {
+        public void Clear_ClearAccessorAfterItWasClearedAndGivenAValueAgain(){
             _uut.Add(8, 8);         // Accumulator = 16
             _uut.Multiply(10, 2);   //Accumulator = 20
             _uut.Clear();           //Accumulator = 0;
