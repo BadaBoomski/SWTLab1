@@ -2,9 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using Calculator;
+using NUnit.Framework.Internal;
+
 // To begin with we do [Test] and then [TestCase]
 // TearDown is not used in this project.
 // Remember: Arrange, Act, Assert!
@@ -108,6 +111,12 @@ namespace Calculator.Test.Unit
            // var _uut = new Calculator();
             var total = _uut.Multiply(aNy, bNy);
             Assert.AreEqual(total, expectedResult);
+        }
+    
+        [Test]
+    public void Accumulator_ReturnMultiply()
+        {
+           var testResult = _uut.Multiply(a)
         }
 
         /*
