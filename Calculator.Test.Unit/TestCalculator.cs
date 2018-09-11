@@ -158,7 +158,12 @@ namespace Calculator.Test.Unit
         [Test]
     public void Accumulator_ReturnMultiply()
         {
-           var testResult = _uut.Multiply(a)
+            double testResult = _uut.Multiply(2,2);
+            testResult = _uut.Add(2,2);
+            //gentag test for alle funktioner
+
+            double testAccul = _uut.Accumulator;
+            Assert.AreEqual(testAccul, testResult);
         }
 
         /*
