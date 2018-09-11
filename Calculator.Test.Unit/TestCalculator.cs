@@ -163,6 +163,47 @@ namespace Calculator.Test.Unit
             Assert.AreEqual(testAccul, 6);
         }
 
+        [Test]
+        public void Accumulator_ReturnResultFromAdd()
+        {
+            _uut.Multiply(2, 2);    //Accumulator = 4
+            _uut.Divide(10, 2);     //Accumulator = 5
+            _uut.Divide(8,2);       // Accumulator = 4
+
+            double testAccul = _uut.Accumulator;
+            Assert.AreEqual(testAccul, 4);
+        }
+
+        [Test]
+        public void Accumulator_ReturnResultFromDivide()
+        {
+            _uut.Multiply(2, 2);    //Accumulator = 4
+            _uut.Divide(10, 2);     //Accumulator = 5
+            _uut.Add(8, 8);         // Accumulator = 16
+            _uut.Multiply(2, 2);    //Accumulator = 4
+            _uut.Divide(10, 2);     //Accumulator = 5
+            _uut.Add(8, 8);         // Accumulator = 16
+            _uut.Divide(10, 2);     //Accumulator = 5
+
+            double testAccul = _uut.Accumulator;
+            Assert.AreEqual(testAccul, 5);
+        }
+
+        [Test]
+        public void Accumulator_ReturnResultFromMultiply()
+        {
+            _uut.Multiply(2, 2);    //Accumulator = 4
+            _uut.Divide(10, 2);     //Accumulator = 5
+            _uut.Add(8, 8);         // Accumulator = 16
+            _uut.Multiply(2, 2);    //Accumulator = 4
+            _uut.Divide(10, 2);     //Accumulator = 5
+            _uut.Add(8, 8);         // Accumulator = 16
+            _uut.Multiply(10, 2);     //Accumulator = 20
+
+            double testAccul = _uut.Accumulator;
+            Assert.AreEqual(testAccul, 20);
+        }
+
         /*
          * [SetUP] and [TearDown] - useful in e.g. inheritance.
          * Dont use more than 1 SetUP/TearDown pr. class if possible (=> order is unknown).
