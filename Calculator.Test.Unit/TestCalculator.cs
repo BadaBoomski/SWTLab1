@@ -85,6 +85,8 @@ namespace Calculator.Test.Unit
             Assert.That(_uut.Multiply(0, 2), Is.EqualTo(0));
         }
 
+        /*Test af Eksponentiel Funktion*/
+
         [Test]
         public void Power_Power2and3_Returns8()
         {
@@ -92,6 +94,47 @@ namespace Calculator.Test.Unit
             // var _uut = new Calculator();
 
             Assert.That(_uut.Power(2, 3), Is.EqualTo(8));
+        }
+
+        [Test]
+        public void Power_PowerNegative2and3_Returns8()
+        {
+            //Power is in this example 2*2*2=8
+            // var _uut = new Calculator();
+
+            Assert.That(_uut.Power(-2, 3), Is.EqualTo(-8));
+        }
+        public void Power_Power2dot13and3_Returns9dot66()
+        {
+            //Power is in this example 2*2*2=8
+            // var _uut = new Calculator();
+
+            Assert.That(_uut.Power(2.13, 3), Is.EqualTo(9.66));
+        }
+
+        public void Power_PowerNegative2dot13And3_ReturnsNegative9dot66()
+        {
+            //Power is in this example 2*2*2=8
+            // var _uut = new Calculator();
+
+            Assert.That(_uut.Power(-2.13, 3), Is.EqualTo(-9.66));
+        }
+
+        [Test]
+        public void Divide_Divide10and5Return2()
+        {
+            Assert.That(_uut.Divide(10,5),Is.EqualTo(2));
+        }
+
+        [Test]
+        public void Divide_Dividenegative10and5Return2()
+        {
+            Assert.That(_uut.Divide(-10, 5), Is.EqualTo(-2));
+        }
+        [Test]
+        public void Divide_Divide0and5Return2()
+        {
+            Assert.That(_uut.Divide(0, 5), Is.EqualTo(0));
         }
 
         // We've now tried [Test] and for the above, why can conclude, that it is a very slow method.. 
@@ -102,8 +145,7 @@ namespace Calculator.Test.Unit
         [TestCase(-2, 3.5, -7)]
         [TestCase(2, 2, 4)]
         [TestCase(2, 0, 0)]
-        [TestCase(0, 0, 0)]
-        [TestCase(0, 1, 0)]
+        
 
 
         public void Multiply_MultiplyWithTestCase(double aNy, double bNy, double expectedResult)
