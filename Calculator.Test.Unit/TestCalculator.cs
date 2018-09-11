@@ -151,10 +151,16 @@ namespace Calculator.Test.Unit
             var total = _uut.Multiply(aNy, bNy);
             Assert.AreEqual(total, expectedResult);
         }
-    
-    public void Accumulator_ReturnMultiply()
+
+        [Test]
+        public void Accumulator_ReturnMultiply()
         {
-           var testResult = _uut.Multiply()
+            _uut.Multiply(2, 2); //Accumulator = 4
+            _uut.Add(_uut.Accumulator, 2); // Accumulator = 6
+            //gentag test for alle funktioner
+
+            double testAccul = _uut.Accumulator;
+            Assert.AreEqual(testAccul, 6);
         }
 
         /*
