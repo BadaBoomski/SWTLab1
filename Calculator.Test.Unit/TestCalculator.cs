@@ -206,6 +206,30 @@ namespace Calculator.Test.Unit
             Assert.AreEqual(testAccul, 20);
         }
 
+        [Test]
+        public void Clear_ClearAccessorAfterItHoldsAnInteger()
+        {
+            _uut.Add(8, 8);         // Accumulator = 16
+            _uut.Multiply(10, 2);     //Accumulator = 20
+            _uut.Clear();
+
+            double testAccul = _uut.Accumulator;
+            Assert.AreEqual(testAccul, 0);
+        }
+
+        [Test]
+        public void Clear_ClearAccessorAfterItWasClearedAndGivenAValueAgain()
+        {
+            _uut.Add(8, 8);         // Accumulator = 16
+            _uut.Multiply(10, 2);   //Accumulator = 20
+            _uut.Clear();           //Accumulator = 0;
+            _uut.Subtract(10, 3);   //Accumulator = 7;
+            _uut.Clear();           //Accumulator = 0;
+
+            double testAccul = _uut.Accumulator;
+            Assert.AreEqual(testAccul, 0);
+        }
+
         /*
          * [SetUP] and [TearDown] - useful in e.g. inheritance.
          * Dont use more than 1 SetUP/TearDown pr. class if possible (=> order is unknown).
