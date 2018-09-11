@@ -75,6 +75,7 @@ namespace Calculator
             catch
                 (DivideByZeroException)
             {
+                Console.WriteLine("Attempted divide by zero.");
                 return -1;
             }
         }
