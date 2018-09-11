@@ -103,7 +103,7 @@ namespace Calculator.Test.Unit
         [Test]
         public void Divide_Divide5and0ReturnError()
         {
-            Assert.That(_uut.Divide(0, 5), Is.EqualTo(-1)); 
+            Assert.That(_uut.Divide(5, 0), Is.EqualTo(-1)); 
         }
         /* Above we've tried using the tag [Test]. We can conclude that the method of using [Test] is rather slow and inefficient to write out. 
            Therefore we continue with the tag [TestCase]. This tag is a lot faster to work with, if you're working with the same method a few times and only need to change the values.
