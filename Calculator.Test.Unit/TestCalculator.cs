@@ -91,6 +91,12 @@ namespace Calculator.Test.Unit
             Assert.That(_uut.Power(2, 3), Is.EqualTo(8));
         }
 
+        [Test]
+        public void Divide_Divide10and5Return2()
+        {
+            Assert.That(_uut.Divide(10,5),Is.EqualTo(2));
+        }
+
         // We've now tried [Test] and for the above, why can conclude, that it is a very slow method.. 
         // Here we try  the [TestCase] showing that it is by far much faster/easier
         // ... when same method is tried with different values!
