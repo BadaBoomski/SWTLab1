@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Calculator;
 using NUnit.Framework.Internal;
 
-// To begin with we do [Test] and then [TestCase]
+// To begin with we do [Test] and then [TestCase] and then [Test] again.
 // TearDown is not used in this project.
 // Remember: Arrange, Act, Assert!
 
@@ -101,10 +101,10 @@ namespace Calculator.Test.Unit
         }
 
         [Test]
-        public void Divide_Divide5and0ReturnError()
-        {
-            Assert.That(_uut.Divide(5, 0), Is.EqualTo(-1)); 
+        public void Divide_Divide5and0ThrowsDivideByZeroException(){
+            Assert.Throws<DivideByZeroException>(() => _uut.Divide(5,0));
         }
+
         /* Above we've tried using the tag [Test]. We can conclude that the method of using [Test] is rather slow and inefficient to write out. 
            Therefore we continue with the tag [TestCase]. This tag is a lot faster to work with, if you're working with the same method a few times and only need to change the values.
         */
@@ -120,8 +120,8 @@ namespace Calculator.Test.Unit
 
         [Test]
         public void Accumulator_ReturnMultiply() {
-            _uut.Multiply(2, 2); //Accumulator = 4
-            _uut.Add(_uut.Accumulator, 2); // Accumulator = 6
+            _uut.Multiply(2, 2);             //Accumulator = 4
+            _uut.Add(_uut.Accumulator, 2);   // Accumulator = 6
             //gentag test for alle funktioner
 
             double testAccul = _uut.Accumulator;
