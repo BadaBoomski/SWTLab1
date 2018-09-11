@@ -82,6 +82,8 @@ namespace Calculator.Test.Unit
             Assert.That(_uut.Multiply(0, 2), Is.EqualTo(0));
         }
 
+        /*Test af Eksponentiel Funktion*/
+
         [Test]
         public void Power_Power2and3_Returns8()
         {
@@ -89,6 +91,30 @@ namespace Calculator.Test.Unit
             // var _uut = new Calculator();
 
             Assert.That(_uut.Power(2, 3), Is.EqualTo(8));
+        }
+
+        [Test]
+        public void Power_PowerNegative2and3_Returns8()
+        {
+            //Power is in this example 2*2*2=8
+            // var _uut = new Calculator();
+
+            Assert.That(_uut.Power(-2, 3), Is.EqualTo(-8));
+        }
+        public void Power_Power2dot13and3_Returns9dot66()
+        {
+            //Power is in this example 2*2*2=8
+            // var _uut = new Calculator();
+
+            Assert.That(_uut.Power(2.13, 3), Is.EqualTo(9.66));
+        }
+
+        public void Power_PowerNegative2dot13And3_ReturnsNegative9dot66()
+        {
+            //Power is in this example 2*2*2=8
+            // var _uut = new Calculator();
+
+            Assert.That(_uut.Power(-2.13, 3), Is.EqualTo(-9.66));
         }
 
         [Test]
