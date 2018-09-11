@@ -99,8 +99,7 @@ namespace Calculator.Test.Unit
         [TestCase(-2, 3.5, -7)]
         [TestCase(2, 2, 4)]
         [TestCase(2, 0, 0)]
-        [TestCase(0, 0, 0)]
-        [TestCase(0, 1, 0)]
+        
 
 
         public void Multiply_MultiplyWithTestCase(double aNy, double bNy, double expectedResult)
