@@ -11,6 +11,7 @@ using NUnit.Framework.Internal;
 // To begin with we do [Test] and then [TestCase] and then [Test] again.
 // TearDown is not used in this project.
 // Remember: Arrange, Act, Assert!
+//This is a test on commits - Thomas
 
 namespace Calculator.Test.Unit
 {
